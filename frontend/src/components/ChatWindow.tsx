@@ -29,9 +29,9 @@ export default function ChatWindow({
     <div className="flex flex-col h-full">
       {/* Messages */}
       <div className="flex-1 overflow-y-auto">
-        <div className="max-w-3xl mx-auto px-4 py-6 space-y-4">
+        <div className="max-w-3xl mx-auto px-3 sm:px-4 py-4 sm:py-6 space-y-3 sm:space-y-4">
           {messages.length === 0 && (
-            <div className="flex items-center justify-center pt-32">
+            <div className="flex items-center justify-center pt-20 sm:pt-32">
               <div className="text-center">
                 <p
                   className="text-2xl mb-2"

@@ -13,7 +13,7 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
     return (
       <div className="flex justify-end message-enter">
         <div
-          className="max-w-[75%] rounded-2xl rounded-br-md px-4 py-2.5"
+          className="max-w-[88%] sm:max-w-[75%] rounded-2xl rounded-br-md px-4 py-2.5"
           style={{
             backgroundColor: "var(--user-bg)",
             color: "var(--user-text)",
@@ -30,13 +30,13 @@ export default function MessageBubble({ message }: MessageBubbleProps) {
   return (
     <div className="flex justify-start message-enter">
       <div
-        className="max-w-[85%] rounded-2xl rounded-bl-md px-5 py-3"
+        className="max-w-[95%] sm:max-w-[85%] rounded-2xl rounded-bl-md px-4 sm:px-5 py-3"
         style={{
           backgroundColor: "var(--bg-elevated)",
           border: "1px solid var(--border-light)",
         }}
       >
-        <div className="prose prose-sm chat-prose max-w-none">
+        <div className="prose prose-sm chat-prose max-w-none overflow-x-auto">
           <Markdown remarkPlugins={[remarkGfm]}>
             {message.content}
           </Markdown>

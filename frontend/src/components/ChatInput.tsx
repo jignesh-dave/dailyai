@@ -22,10 +22,10 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <div className="px-4 pb-5 pt-3">
+    <div className="px-3 sm:px-4 pb-4 sm:pb-5 pt-3">
       <form
         onSubmit={handleSubmit}
-        className="flex items-center gap-2 max-w-3xl mx-auto rounded-full px-1.5 py-1.5 transition-shadow duration-200"
+        className="flex items-center gap-1.5 sm:gap-2 max-w-3xl mx-auto rounded-full px-1.5 py-1.5 transition-shadow duration-200"
         style={{
           backgroundColor: "var(--bg-elevated)",
           border: "1px solid var(--border)",
@@ -39,12 +39,12 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Ask about your calendar or emails..."
           disabled={disabled}
-          className="flex-1 bg-transparent px-4 py-2 text-sm outline-none placeholder:text-[var(--text-muted)] disabled:opacity-40"
+          className="flex-1 min-w-0 bg-transparent px-3 sm:px-4 py-2 text-sm outline-none placeholder:text-[var(--text-muted)] disabled:opacity-40"
         />
         <button
           type="submit"
           disabled={disabled || !input.trim()}
-          className="px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-90 active:scale-95"
+          className="px-4 sm:px-5 py-2 rounded-full text-sm font-medium cursor-pointer transition-all duration-150 disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-90 active:scale-95 shrink-0"
           style={{
             backgroundColor: "var(--accent)",
             color: "var(--user-text)",
