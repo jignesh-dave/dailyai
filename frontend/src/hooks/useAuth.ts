@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import type { AuthStatus } from "../types";
+import { API_URL } from "../config";
 
 const SESSION_KEY = "dailyai_session";
 
@@ -16,7 +17,7 @@ export function useAuth() {
 
   const checkStatus = useCallback(async (sid: string) => {
     try {
-      const res = await fetch(`/api/auth/status?session=${encodeURIComponent(sid)}`);
+      const res = await fetch(`${API_URL}/api/auth/status?session=${encodeURIComponent(sid)}`);
       const data: AuthStatus = await res.json();
       if (!data.authenticated) {
         localStorage.removeItem(SESSION_KEY);
@@ -49,7 +50,7 @@ export function useAuth() {
   }, [checkStatus]);
 
   const login = useCallback(async () => {
-    const res = await fetch("/api/auth/login");
+    const res = await fetch(`${API_URL}/api/auth/login`);
     const data = await res.json();
     window.location.href = data.auth_url;
   }, []);
@@ -57,7 +58,7 @@ export function useAuth() {
   const logout = useCallback(async () => {
     const sid = getSessionId();
     if (sid) {
-      await fetch(`/api/auth/logout?session=${encodeURIComponent(sid)}`, {
+      await fetch(`${API_URL}/api/auth/logout?session=${encodeURIComponent(sid)}`, {
         method: "POST",
       });
     }

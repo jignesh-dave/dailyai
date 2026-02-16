@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import type { ChatMessage } from "../types";
 import { getSessionId } from "./useAuth";
+import { API_URL } from "../config";
 
 let nextId = 0;
 function genId() {
@@ -41,7 +42,7 @@ export function useChat() {
     };
 
     try {
-      const res = await fetch(`/api/chat?session=${encodeURIComponent(sid)}`, {
+      const res = await fetch(`${API_URL}/api/chat?session=${encodeURIComponent(sid)}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content }),

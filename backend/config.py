@@ -16,8 +16,10 @@ class Settings:
         "openid",
     ]
 
-    REDIRECT_URI: str = "http://localhost:8000/api/auth/callback"
-    FRONTEND_URL: str = "http://localhost:5173"
+    REDIRECT_URI: str = os.getenv(
+        "REDIRECT_URI", "http://localhost:8000/api/auth/callback"
+    )
+    FRONTEND_URL: str = os.getenv("FRONTEND_URL", "http://localhost:5173")
 
 
 settings = Settings()
